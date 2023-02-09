@@ -115,7 +115,7 @@ check_hic_format <- function(path, resolution, ...) {
 #' @rdname checks
 
 is_hic <- function(path) {
-    path <- gsub('~', Sys.getenv('HOME'), path)
+    path <- gsub('^~', Sys.getenv('HOME'), path)
     tryCatch(
         expr = {strawr::readHicChroms(path); TRUE}, 
         error = function(e) {

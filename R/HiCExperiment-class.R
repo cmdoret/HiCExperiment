@@ -170,7 +170,7 @@ HiCExperiment <- function(
     pairsFile = NULL, 
     bed = NULL
 ) {
-    file <- gsub('~', Sys.getenv('HOME'), file)
+    file <- gsub('^~', Sys.getenv('HOME'), file)
     stopifnot(file.exists(file))
     if (!is.null(resolution)) resolution <- as.integer(resolution)
     
@@ -308,7 +308,7 @@ makeHiCExperimentFromGInteractions <- function(gi) {
 ) {
     
     ## -- Check that provided file is valid
-    file <- gsub('~', Sys.getenv('HOME'), file)
+    file <- gsub('^~', Sys.getenv('HOME'), file)
     check_hic_file(file)
     check_hic_format(file, resolution)
 
@@ -354,7 +354,7 @@ makeHiCExperimentFromGInteractions <- function(gi) {
 ) {
     
     ## -- Check that provided file is valid
-    file <- gsub('~', Sys.getenv('HOME'), file)
+    file <- gsub('^~', Sys.getenv('HOME'), file)
     check_hicpro_files(file, bed)
 
     ## -- Read interactions

@@ -74,7 +74,7 @@ AggrHiCExperiment <- function(
 ) {
     
     ## - Check input arguments
-    file <- gsub('~', Sys.getenv('HOME'), file)
+    file <- gsub('^~', Sys.getenv('HOME'), file)
     stopifnot(file.exists(file))
     if (!is.null(resolution)) {
         resolution <- as.integer(resolution)

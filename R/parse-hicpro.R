@@ -16,7 +16,7 @@
 
 .hicpro2gi <- function(file, bed) {
     
-    file <- gsub('~', Sys.getenv('HOME'), file)
+    file <- gsub('^~', Sys.getenv('HOME'), file)
     
     # Get raw counts for bins from hic
     matrix_df <- vroom::vroom(

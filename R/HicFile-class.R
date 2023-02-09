@@ -48,7 +48,7 @@ setClass('HicFile', contains = 'ContactsFile')
 #' @export 
 
 HicFile <- function(path, resolution = NULL, pairsFile = NULL, metadata = list()) {
-    path <- gsub('~', Sys.getenv('HOME'), path)
+    path <- gsub('^~', Sys.getenv('HOME'), path)
     check_hic_file(path)
     if (is_hic(path) & is.null(resolution)) 
         resolution <- lsHicResolutions(path)[1]

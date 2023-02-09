@@ -64,7 +64,7 @@ setMethod("availableChromosomes", signature(x = "HicproFile"), function(x) {
 
 
 .availableResolutions <- function(file, bed = NULL) {
-    file <- gsub('~', Sys.getenv('HOME'), file)
+    file <- gsub('^~', Sys.getenv('HOME'), file)
     stopifnot(file.exists(file))
     if (is_cool(file) | is_mcool(file)) {
         return(lsCoolResolutions(file, verbose = TRUE))
@@ -88,7 +88,7 @@ setMethod("availableChromosomes", signature(x = "HicproFile"), function(x) {
 }
 
 .availableChromosomes <- function(file, bed = NULL) {
-    file <- gsub('~', Sys.getenv('HOME'), file)
+    file <- gsub('^~', Sys.getenv('HOME'), file)
     stopifnot(file.exists(file))
     if (is_cool(file)) {
         return(.cool2seqinfo(file))

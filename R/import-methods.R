@@ -76,7 +76,7 @@ NULL
 setMethod('import', 'CoolFile', function(con, ...) {
 
     path <- BiocGenerics::path(con)
-    path <- gsub('~', Sys.getenv('HOME'), path)
+    path <- gsub('^~', Sys.getenv('HOME'), path)
     stopifnot(file.exists(path))
     if (!check_cool_file(path)) stop("Provided file is not a valid .(m)cool file")
 
@@ -142,7 +142,7 @@ setMethod('import', 'CoolFile', function(con, ...) {
 setMethod('import', 'HicFile', function(con, ...) {
 
     path <- BiocGenerics::path(con)
-    path <- gsub('~', Sys.getenv('HOME'), path)
+    path <- gsub('^~', Sys.getenv('HOME'), path)
     stopifnot(file.exists(path))
     if (!check_hic_file(path)) stop("Provided file is not a valid .hic file")
 
@@ -205,7 +205,7 @@ setMethod('import', 'HicproFile', function(con, ...) {
 
     params <- list(...)
     path <- BiocGenerics::path(con)
-    path <- gsub('~', Sys.getenv('HOME'), path)
+    path <- gsub('^~', Sys.getenv('HOME'), path)
     stopifnot(file.exists(path))
 
     ## -- Handle parsed arguments. Priority is given to 

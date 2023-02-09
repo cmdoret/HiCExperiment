@@ -19,7 +19,7 @@
 
 .hic2gi <- function(file, coords = NULL, resolution = NULL) {
     
-    file <- gsub('~', Sys.getenv('HOME'), file)
+    file <- gsub('^~', Sys.getenv('HOME'), file)
     
     # Mutate Pairs provided as characters to real Pairs
     if (!is.null(coords)) {
